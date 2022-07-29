@@ -1,4 +1,4 @@
-// const shortId = require("short");
+const shortId = require("shortid");
 
 class Ticket {
   /**
@@ -7,8 +7,8 @@ class Ticket {
    * @param {number} price
    */
   constructor(username, price) {
-    // this.id = shortId.generate();
-    this.id = Math.floor(Math.random() * 10000);
+    this.id = shortId.generate();
+    // this.id = Math.floor(Math.random() * 10000);
     this.username = username;
     this.price = price;
     this.createdAt = new Date();

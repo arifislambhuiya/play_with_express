@@ -63,6 +63,33 @@ class MyDB {
       /** @param {Ticket} ticket */
       (ticket) => ticket.username === username
     );
+    return tickets;
+  }
+
+  /**
+   * update my username
+   *
+   */
+  updateByUsername(username, userBody) {
+    const user = this.tickets.filter((ticket) => ticket.username === username);
+    console.log(user);
+    user.username = userBody.username || user.username;
+    user.price = userBody.price || user.price;
+    user.createdAt = userBody.createdAt || user.createdAt;
+    return user;
+  }
+
+  /**
+   * delete by username
+   */
+  deleteByUsername(username) {
+    const user = this.findByUsername(username);
+    if (user !== -1) {
+      this.user.splice(user, 1);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   //update ticket info
